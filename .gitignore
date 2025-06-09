@@ -1,0 +1,43 @@
+# Node.js
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+
+# Logs
+logs
+*.log
+*.log.*
+
+# dotenv
+.env
+
+# ngrok
+.ngrok2/
+.ngrok/
+
+# Docker
+docker-compose.override.yml
+*.pid
+*.seed
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Redis dump (por si usaras volúmenes)
+dump.rdb
+
+# IDEs / Editor files
+.idea/
+*.swp
+*.swo
+*.bak
+*.tmp
+*.old
+
+# Optional: si querés ignorar la carpeta data/node_modules (por si llegara a quedar algo ahí)
+data/node_modules/

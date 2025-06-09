@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  bot-whatsapp:
+    build: .
+    container_name: bot-whatsapp
+    ports:
+      - "${PORT}:3000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - TWILIO_AUTH_TOKEN=${TWILIO_AUTH_TOKEN}
+      - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID}
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+    restart: always
+    networks:
+      - bot-net
+    volumes:
+      - ./data:/usr/src/app
+      - /usr/src/app/node_modules
+    command: npm run dev
+  redis:
+    image: redis:6.2
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - bot-net
+
+networks:
+  bot-net:
+    driver: bridge
