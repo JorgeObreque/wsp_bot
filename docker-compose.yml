@@ -11,8 +11,10 @@ services:
       - TWILIO_AUTH_TOKEN=${TWILIO_AUTH_TOKEN}
       - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID}
       - REDIS_URL=redis://redis:6379
+      - OLLAMA_API_URL=http://ollama:11434  # URL de Ollama para tu bot
     depends_on:
       - redis
+      - ollama
     restart: always
     networks:
       - bot-net
@@ -20,6 +22,7 @@ services:
       - ./data:/usr/src/app
       - /usr/src/app/node_modules
     command: npm run dev
+
   redis:
     image: redis:6.2
     container_name: redis
@@ -28,6 +31,20 @@ services:
     networks:
       - bot-net
 
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+    networks:
+      - bot-net
+
 networks:
   bot-net:
     driver: bridge
+
+volumes:
+  ollama_data:

@@ -1,0 +1,12 @@
+OPENAI_API_KEY=
+TWILIO_AUTH_TOKEN=
+TWILIO_ACCOUNT_SID=
+OLLAMA_API_URL=
+PORT=3000
+SHOP_NAME=Blondor Peluquería
+SHOP_LOCATION=Av. Apoquindo 4900 Local 53, Las COndes
+SHOP_HOURS=Lunes a Viernes de 10:00 a 17:30, Sábado de 09:00 a 15:00
+SHOP_PHONE=+56 9 66756614
+SHOP_WEB=https://www.blondor.cl
+SHOP_SERVICES=Corte de cabello, coloración, peinados, tratamientos capilares
+BOT_NAME=Mina
